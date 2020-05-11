@@ -4,5 +4,5 @@
 int main(){
     Solution *sol = new Solution();
 
-    std::cout << sol->myAtoi("-91283472332") << std::endl;
+    std::cout << sol->myAtoi("  0000000000012345678") << std::endl;
 }

@@ -2,22 +2,16 @@
 #include <iostream>
 #include <cmath>
 
-using namespace std;
-
 class Solution {
 public:
 
-    int processNum(const string& str, bool isMinus){
-        cout << "first-processed string is " << str << ", and it's minus value is " << isMinus << endl;
-        int INT_MIN = -pow(2, 31);
-        int INT_MAX = pow(2, 31) - 1;
+    int32_t processNum(const std::string& str, bool isMinus){
+        int32_t minVal = -2147483648;
+        int32_t maxVal = 2147483647;
 
-        int seedNum = 1;
-        int result = 0;
-
-        for(int i=0;i<str.length(); i++){
-            
-
+        int32_t seedNum = 1;
+        int32_t result = 0;
+        for(int32_t i=static_cast<int32_t>(str.length()) - 1;i >= 0; i--){
             if(isMinus){
                 result -= seedNum * (str.at(i) - '0');
             }
@@ -25,11 +19,11 @@ public:
                 result += seedNum * (str.at(i) - '0');
             }
 
-            if(result < INT_MIN){
-                return INT_MIN;
+            if(result < minVal){
+                return minVal;
             }
-            else if(result >= INT_MAX){
-                return INT_MAX;
+            else if(result >= maxVal){
+                return maxVal;
             }
 
             seedNum *= 10;
@@ -38,11 +32,11 @@ public:
         return result;
     }
 
-    int myAtoi(const string& str) {
+    int32_t myAtoi(const std::string& str) {
         bool minus = false;
         bool isvalid = false;
 
-        string temp = "";
+        std::string temp = "";
         for(char value : str){
             if(value == ' ' || value == '+'){
                 continue;
