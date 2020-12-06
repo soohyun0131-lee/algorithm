@@ -1,7 +1,0 @@
-#ifndef __CODEJAM_2020_QUALIFICATION_01__
-#define __CODEJAM_2020_QUALIFICATION_01__
-
-void solution(){
-}
-
-#endif // __CODEJAM_2020_QUALIFICATION_01__
